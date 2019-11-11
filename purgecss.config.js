@@ -12,15 +12,15 @@ module.exports = {
 	}
   ],
   content: [
-    "./conference/www/index.html",
-    "./conference/www/travel.html",
-    "./conference/templates/game.html",
-    "./conference/templates/conference.html",
-    "./conference/templates/includes/footer.html",
-    "./conference/templates/includes/navbar.html",
-    "./conference/templates/includes/modal.html",
+    "./indiaos/www/index.html",
+    "./indiaos/www/travel.html",
+    "./indiaos/templates/game.html",
+    "./indiaos/templates/conference.html",
+    "./indiaos/templates/includes/footer.html",
+    "./indiaos/templates/includes/navbar.html",
+    "./indiaos/templates/includes/modal.html",
   ],
-  css: ["./conference/public/css/tailwind.css"]
+  css: ["./indiaos/public/css/tailwind.css"]
 };
 
-// purgecss -c purgecss.config.js --out conference/public/css/build/
+// purgecss -c purgecss.config.js --out indiaos/public/css/build/

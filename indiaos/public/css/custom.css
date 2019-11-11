@@ -22,7 +22,7 @@ html body {
 }
 
 .map {
-	background-image: url('/assets/conference/img/bangalore.png');
+	background-image: url('/assets/indiaos/img/bangalore.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;

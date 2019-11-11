@@ -46,7 +46,7 @@
 			</div>
 
 			<div id="already-registered" class="py-12 md:py-5">
-				<img id="emoji" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/conference/img/monocle.png"></img>
+				<img id="emoji" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/indiaos/img/monocle.png"></img>
 				<div class="text-center">You have already registered for IndiaOS. We will send you a reminder 3 days before the conference.</div>
 				<!-- <div class="text-center text-gray-600">P.S. We sent an email with the ticket attached.</div> -->
 			</div>
@@ -151,7 +151,7 @@
 			let form = {}
 			inputs.forEach((id) => form[id] = document.getElementById(id).value)
 			form.event = "IndiaOS 2020"
-			frappe.call('conference.conference.doctype.conference_participant.conference_participant.register', form).then(res => {
+			frappe.call('indiaos.indiaos.doctype.conference_participant.conference_participant.register', form).then(res => {
 				let msg = res.message
 				if (msg.status == 'success') {
 					success();

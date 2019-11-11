@@ -8,10 +8,6 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Conference"
-				},
-				{
-					"type": "doctype",
 					"name": "Conference Participant"
 				},
 				{

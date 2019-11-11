@@ -1,0 +1,380 @@
+<div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-end md:items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
+	<div class="shadow-lg modal-container bg-white w-full md:max-w-md mx-auto rounded-t-lg md:rounded-b-lg shadow-lg z-50 overflow-y-auto">
+		<div class="modal-content py-4 text-left px-6">
+			<!--Title-->
+			<div class="flex justify-between items-center pb-3">
+				<p id="modal-title" class="text-2xl font-bold">Register</p>
+				<div class="modal-close cursor-pointer z-50">
+					<svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+						viewBox="0 0 18 18">
+						<path
+							d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+						</path>
+					</svg>
+				</div>
+			</div>
+			<!--Body-->
+			<form id="register-form" class="my-5">
+				<div class="mb-4">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">Name</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="name" type="text" placeholder="Jane Doe" required="True">
+					<p id="error-name" class="text-xs text-red-500 mt-2 hidden">This field is required</p>
+				</div>
+				<div class="mb-4">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">E-mail</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="email" type="email" placeholder="jane@example.com" required="True">
+					<p id="error-email" class="text-xs text-red-500 mt-2 hidden">Please enter a valid email</p>
+				</div>
+				<div class="mb-6">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">Organization You Represent</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="organization" type="text" placeholder="Cool Stuff Inc.">
+					<p id="error-organization" class="text-xs text-red-500 mt-2 hidden">This field is required</p>
+				</div>
+			</form>
+
+			<div id="success" class="py-20 md:py-5">
+				<div class="success-checkmark">
+					<div class="check-icon" id='check-icon'>
+						<span class="icon-line line-tip"></span>
+						<span class="icon-line line-long"></span>
+						<div class="icon-circle"></div>
+						<div class="icon-fix"></div>
+					</div>
+				</div>
+				<div class="text-center">You have successfully registered for IndiaOS. </div>
+				<!-- <div class="text-center text-gray-600">P.S. We sent an email with the ticket attached.</div> -->
+			</div>
+
+			<div id="already-registered" class="py-12 md:py-5">
+				<img id="emoji" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/conference/img/monocle.png"></img>
+				<div class="text-center">You have already registered for IndiaOS. We will send you a reminder 3 days before the conference.</div>
+				<!-- <div class="text-center text-gray-600">P.S. We sent an email with the ticket attached.</div> -->
+			</div>
+			<!--Footer-->
+			<div id="actions" class="flex justify-end pt-5">
+				<button href="#responsive-header" class="font-mono font-base font-mono no-underline text-grey-darkest mr-3 bg-gray-400 px-3 py-2 rounded border-gray-500 border-b-4 hover:border-gray-600 modal-close">
+					Cancel
+				</button>
+				<button href="#responsive-header" class="font-mono font-base font-mono no-underline text-grey-darkest bg-yellow-400 px-3 py-2 rounded border-yellow-500 border-b-4 hover:border-yellow-600" onclick="register()">
+					Register Free
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% block script %}
+<script>
+	const modal = document.querySelector('.main-modal');
+	const closeButton = document.querySelectorAll('.modal-close');
+
+	const modalClose = () => {
+		modal.classList.remove('fadeIn');
+		modal.classList.add('fadeOut');
+		setTimeout(() => {
+			modal.style.display = 'none';
+			resetModal();
+		}, 500);
+	}
+
+	function resetModal() {
+		hide('success')
+		hide('already-registered')
+		show('register-form')
+		show('actions', 'flex')
+		document.getElementById('modal-title').innerHTML = "Register"
+	}
+
+	const openModal = () => {
+		resetModal()
+		modal.classList.remove('fadeOut');
+		modal.classList.add('fadeIn');
+		modal.style.display = 'flex';
+	}
+
+	for (let i = 0; i < closeButton.length; i++) {
+		const elements = closeButton[i];
+		elements.onclick = (e) => modalClose();
+		modal.style.display = 'none';
+		window.onclick = function (event) {
+			if (event.target == modal) modalClose();
+		}
+	}
+
+	function hide(id) {
+		document.getElementById(id).style.display = "none";
+	}
+
+	function show(id, display="block") {
+		document.getElementById(id).style.display = display;
+	}
+
+	function success() {
+		show('success')
+		hide('already-registered')
+		hide('register-form')
+		hide('actions')
+		hide('check-icon')
+		document.getElementById('modal-title').innerHTML = "Yayy 🎉"
+		setTimeout(function () {
+			show('check-icon')
+		}, 10);
+	}
+
+	function fail(reason) {
+		show(reason)
+		hide('register-form')
+		hide('success')
+		hide('actions')
+		hide('emoji')
+		document.getElementById('modal-title').innerHTML = "Oops!"
+		setTimeout(function () {
+			show('emoji')
+		}, 10);
+	}
+
+	function register() {
+		let validated = true
+		let inputs = ['name', 'email', 'organization'];
+		inputs.forEach((id) => {
+			let element = document.getElementById(id)
+			if(!element.checkValidity()) {
+				validated = false
+				document.getElementById(`error-${id}`).classList.remove("hidden")
+			}
+			else {
+				document.getElementById(`error-${id}`).classList.add("hidden")
+			}
+		});
+
+		if (validated) {
+			let form = {}
+			inputs.forEach((id) => form[id] = document.getElementById(id).value)
+			form.event = "IndiaOS 2020"
+			frappe.call('conference.conference.doctype.conference_participant.conference_participant.register', form).then(res => {
+				let msg = res.message
+				if (msg.status == 'success') {
+					success();
+					document.forms.namedItem('register-form').reset()
+				}
+				if (msg.status == 'failed') {
+					fail(msg.reason)
+					document.forms.namedItem('register-form').reset()
+				}
+			})
+		}
+		else return
+	}
+</script>
+{% endblock %}
+
+{% block head_includes %}
+<style>
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.animated.faster {
+	-webkit-animation-duration: 500ms;
+	animation-duration: 500ms;
+}
+
+.animated.fastest {
+	-webkit-animation-duration: 350ms;
+	animation-duration: 350ms;
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+.fadeOut {
+	-webkit-animation-name: fadeOut;
+	animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+	from {
+		bottom: -100%;
+	}
+
+	to {
+		bottom: 0%;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		bottom: 0%;
+	}
+
+	to {
+		bottom: -200%;
+	}
+}
+
+.grow {
+	-webkit-animation-name: grow;
+	animation-name: grow;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/**
+ * Extracted from: SweetAlert
+ * Modified by: Istiak Tridip
+ */
+.success-checkmark {
+  width: 80px;
+  height: 115px;
+  margin: 0 auto;
+}
+.success-checkmark .check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid #f6e05e;
+}
+.success-checkmark .check-icon::before {
+  top: 3px;
+  left: -2px;
+  width: 30px;
+  transform-origin: 100% 50%;
+  border-radius: 100px 0 0 100px;
+}
+.success-checkmark .check-icon::after {
+  top: 0;
+  left: 30px;
+  width: 60px;
+  transform-origin: 0 50%;
+  border-radius: 0 100px 100px 0;
+  animation: rotate-circle 4.25s ease-in;
+}
+.success-checkmark .check-icon::before, .success-checkmark .check-icon::after {
+  content: '';
+  height: 100px;
+  position: absolute;
+  background: #FFFFFF;
+  transform: rotate(-45deg);
+}
+.success-checkmark .check-icon .icon-line {
+  height: 5px;
+  background-color: #f6e05e;
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+}
+.success-checkmark .check-icon .icon-line.line-tip {
+  top: 46px;
+  left: 14px;
+  width: 25px;
+  transform: rotate(45deg);
+  animation: icon-line-tip 0.75s;
+}
+.success-checkmark .check-icon .icon-line.line-long {
+  top: 38px;
+  right: 8px;
+  width: 47px;
+  transform: rotate(-45deg);
+  animation: icon-line-long 0.75s;
+}
+.success-checkmark .check-icon .icon-circle {
+  top: -4px;
+  left: -4px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: content-box;
+  border: 4px solid rgba(246, 224, 94, 0.5);
+}
+.success-checkmark .check-icon .icon-fix {
+  top: 8px;
+  width: 5px;
+  left: 26px;
+  z-index: 1;
+  height: 85px;
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: #FFFFFF;
+}
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(-45deg);
+  }
+  5% {
+    transform: rotate(-45deg);
+  }
+  12% {
+    transform: rotate(-405deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+@keyframes icon-line-tip {
+  0% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  54% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  70% {
+    width: 50px;
+    left: -8px;
+    top: 37px;
+  }
+  84% {
+    width: 17px;
+    left: 21px;
+    top: 48px;
+  }
+  100% {
+    width: 25px;
+    left: 14px;
+    top: 45px;
+  }
+}
+@keyframes icon-line-long {
+  0% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  65% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  84% {
+    width: 55px;
+    right: 0px;
+    top: 35px;
+  }
+  100% {
+    width: 47px;
+    right: 8px;
+    top: 38px;
+  }
+}
+</style>
+{% endblock %}

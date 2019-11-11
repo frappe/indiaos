@@ -1,0 +1,143 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap');
+*, *::after {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin: 0;
+}
+body {
+	background-size: 32px 32px;
+	background-image: radial-gradient(circle, #A0AEC0 1px, rgba(0, 0, 0, 0) 1px);
+	min-height: 100vh;
+	color: #000;
+	line-height: 1.625;
+	font-family: 'IBM Plex Sans', sans-serif;
+	background-color: #E2E8F0;
+}
+
+h1, h2, h3, p, div, span {
+	color: #000;
+	line-height: 1.625;
+	margin: none !important;
+}
+
+.ticket {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	max-width: 22rem;
+	min-width: 16rem;
+}
+
+.ticket_preheading {
+	max-width: 24rem;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.ticket_preheading p {
+	margin-top: 1em; 
+	color: #4A5568;
+	line-height: 1.625;
+}
+
+.ticket__accent {
+	color: #ecc94b;
+}
+.ticket__header,.ticket__body,.ticket__footer {
+	padding: 1.25rem;
+	background-color: white;
+	border: 1px solid #abb5ba;
+	-webkit-box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
+	        box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
+}
+.ticket__header {
+	border-top: 0.25rem solid #ecc94b;
+	border-bottom: 2px dashed #e9ebed;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+.ticket__wrapper {
+	-webkit-box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
+	        box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
+	border-radius: 0.375em 0.375em 0 0;
+	overflow: hidden;
+}
+.ticket__body {
+	border-bottom: none;
+	border-top: none;
+}
+
+.break {
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid #e9ebed;
+}
+.ticket__section > * + * {
+	margin-top: 0.25rem;
+}
+
+.ticket__section > .heading {
+	font-size: 1.125rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.ticket__header,.ticket__footer {
+	font-weight: bold;
+	display: block;
+}
+.ticket__footer {
+	border-top: 2px dashed #e9ebed;
+	border-radius: 0 0 0.325rem 0.325rem;
+}
+
+.ticket__footer div {
+	font-size: 1.125rem;
+	display: inline-block;
+	width: 48%;
+}
+.ticket__footer .right {
+	text-align: right;
+}
+</style>
+<div style="height: 5em;"></div>
+<div class="ticket_preheading">
+	<div style="font-size: 1.5rem; font-weight: bold;">Your Ticket to Open Source</div>
+	<span style="color: #4A5568;">We look forward to seeing you at the conference. <br>We shall send you an email with the agenda soon.
+	</span>
+</div>
+<article class="ticket" style="box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);border-radius: 0.375em;">
+	<header class="ticket__wrapper">
+		<div class="ticket__header">
+			<div style="font-size: 1.5rem; font-weight: bold;">{{ full_name }}</div>
+			<span style="color: #4A5568; font-size: 0.7rem; font-weight: 400;">{{ name }}</span>
+		</div>
+	</header>
+	<div class="ticket__body">
+		<section class="ticket__section">
+			<div class="heading">Venue</div>
+			<span>Zerodha Sales Office
+			<br>#175/176, Next to Rainbow Hospital
+			<br>Bannergatta Road, Bilekahalli
+			<br>Bengaluru - 560076</span>
+		</section>
+		<div class="break"></div>
+		<section class="ticket__section">
+			<div class="heading">Date</div>
+			<span>18th January 2020
+			<br>9:00 AM to 6:30 PM</span>
+		</section>
+	</div>
+	<footer class="ticket__footer">
+		<div>India<span class="ticket__accent">OS</span></div>
+		<div class="right">18th Jan</div>
+	</footer>
+</article>
+<div class="ticket_preheading" style="margin-top: 2em;">
+	<span style="color: #4A5568;">Meanwhile you can take a look at <a style="color: #252525;" href="https://indiaos.in/travel">things you can do in Bangalore</a> while you are there.
+	</span>
+</div>
+</body>

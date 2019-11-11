@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Webpage" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>{% block title %} {{ title | striptags }} {% endblock %}</title>
+
+	<link rel="manifest" href="/manifest.json">
+
+	{% block meta %}{% endblock %}
+	{% block head_includes %}{% endblock %}
+
+	<!-- Meta tags for SEO and Social Media -->
+	<html>
+
+	<!-- Schema.org markup for Google+ -->
+	<meta itemprop="name" content="IndiaOS - 2020">
+	<meta itemprop="description" content="IndiaOS is an Open Source indiaos organized by the Frappe and DBIT, Mumbai.">
+	<meta itemprop="image" content="{{ frappe.utils.get_url() }}/indiaos-g+.png">
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@indiaos">
+	<meta name="twitter:title" content="IndiaOS - 2020">
+	<meta name="twitter:description" content="IndiaOS 2020.">
+	<meta name="twitter:creator" content="@indiaos">
+
+	<!-- Twitter summary card with large image must be at least 280x150px -->
+	<meta name="twitter:image:src" content="{{ frappe.utils.get_url() }}/assets/conference/img/indiaos-twitter.png">
+
+	<!-- Open Graph data -->
+	<meta property="og:title" content="IndiaOS" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{{ frappe.utils.get_url() }}" />
+	<meta property="og:image" content="{{ frappe.utils.get_url() }}/assets/conference/img/og-300.png" />
+	<meta property="og:image:width" content="300" />
+	<meta property="og:image:height" content="300" />
+	<meta property="og:description" content="IndiaOS is an annual Open Source Conference organized by the Frappe and Zerodha Tech." />
+	<meta property="og:site_name" content="IndiaOS - 2020" />
+
+	<!-- End of Meta Tags-->
+	<link rel="canonical" href="{{ frappe.utils.get_url() }}" />
+
+	<!-- favicons-->
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="img/manifest.json">
+	<meta name="msapplication-TileColor" content="#000">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#000">
+	<link rel="shortcut icon" href="img/favicon.ico">
+</head>
+
+{% block body %}
+{% endblock %}
+</html>

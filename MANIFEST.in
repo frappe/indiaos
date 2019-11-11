@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include indiaos *.css
+recursive-include indiaos *.csv
+recursive-include indiaos *.html
+recursive-include indiaos *.ico
+recursive-include indiaos *.js
+recursive-include indiaos *.json
+recursive-include indiaos *.md
+recursive-include indiaos *.png
+recursive-include indiaos *.py
+recursive-include indiaos *.svg
+recursive-include indiaos *.txt
+recursive-exclude indiaos *.pyc

@@ -1,0 +1,6 @@
+{
+	"css/indiaos.css": [
+		"public/css/builds/tailwind.css",
+		"public/css/custom.css"
+	]
+}

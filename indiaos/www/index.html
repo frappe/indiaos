@@ -1,0 +1,87 @@
+{% extends "templates/conference.html" %}
+
+{% block title %}IndiaOS 2020 - An Open Source Conference{% endblock %}
+
+{% block head_includes %}
+<script src="assets/conference/js/easter.js"></script>
+{% endblock %}
+
+{% block body %}
+<section class="container mx-auto">
+	<div class="flex flex-col lg:flex-row items-center justify-between flex-wrap py-24 lg:px-0 px-6">
+		<div class="w-full lg:w-1/2">
+			<p class="font-mono italic text-gray-600">
+				Talk is Cheap, Show me the <a href="/not-tetris" target="blank" class="hidden lg:inline-block cursor-pointer">Code</a>
+				<span class="lg:hidden">Code</span>
+			</p>
+			<h1 class="text-4xl tracking-wide font-bold leading-tight mb-4">A True Spirited Open Source Conference</h1>
+			<p class="font-mono">18 January 2020 | Bangalore, India</p>
+			<p class="font-mono mt-8 leading-relaxed">See what's shaping the future of software, join a community connected by code and turn ideas into innovations.</p>
+			<div class="mt-8">
+				<button onclick="openModal()" href="#responsive-header" class="font-mono mt-8 font-base font-mono no-underline text-grey-darkest mr-3 bg-yellow-400 px-3 py-2 rounded border-yellow-500 border-b-4 hover:border-yellow-600">
+					Register Free
+				</button>
+				<button onclick="window.location.href='/propose-a-talk'" target="blank" class="font-mono font-base font-mono no-underline text-grey-darkest mr-3 bg-gray-400 px-3 py-2 rounded border-gray-500 border-b-4 hover:border-gray-600 modal-close mt-3 lg:mt-0">
+					Propose a Talk
+				</button>
+			</div>
+		</div>
+		<div class="w-full lg:w-1/2 items-center p-3 lg:block hidden">
+			<img src="/assets/conference/img/sitting-reading.png"></img>
+		</div>
+	</div>
+</section>
+
+<section class="container mx-auto mb-24">
+	<div id="agenda" class="bg-white py-10 px-6 lg:p-12 shadow-lg rounded-lg paper relative mx-2 lg:mx-0">
+		<h2 class="text-3xl tracking-wide font-bold">Go Deeper Into Open Source</h2>
+		<p class="font-mono mt-3 p-0 lg:pr-12 leading-relaxed">India Open Source is a free and non-commercial community event. The goal is to provide software developers and policy makers, communities and enthusiasts a platform to meet and interact. We want to see IndiaOS to grow as a platform to share and grow open source projects and to foster the values of open source in modern software development</p>
+		<h3 class="text-2xl font-bold mt-10 tracking-wide">Agenda for India<span class="tracking-wide text-yellow-500">OS</span> - 2020</h3>
+		<div class="ml-5 lg:ml-12 font-mono mt-5">
+			<ul class="list-disc yellow-list">
+				<li class="mb-2">FOSS Product Showcase</li>
+				<li class="mb-2">Deep Dive of Issues and Trends in Open Source</li>
+				<li class="mb-2">Interact with the larger FOSS Community in India</li>
+				<li class="mb-2">Sustaining FOSS</li>
+				<li class="mb-2">FOSS and India</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="container mx-auto mb-24">
+	<div>
+		<h2 class="text-3xl font-bold tracking-wide text-center mx-2">Hosted where all the <span id="cool" class="cursor-pointer">Buzz</span> is!</h2>
+		<p class="font-mono mt-3 leading-relaxed text-center mx-12">The Indian Silicon Valley has been the breeding ground for some dominant startups and trailblazing teams <!--, placing itself as the World's 2nd Fastest Growing Startup Ecosystem. --></p>
+		<!-- <p class="font-mono mt-3 pr-12 leading-relaxed text-center">The city itself has beautifully combined its rich cultural heritage with its technological and industrial accomplishments, the synthesis of which gives the city it's unique cosmopolitan identity.</p> -->
+		<div class="map py-10 px-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
+			<div class="flex flex-col md:flex-row">
+				<div class="w-full lg:w-3/5">
+					<h3 class="text-2xl font-bold tracking-wide">Venue</h3>
+					<p class="leading-relaxed mt-3">Zerodha, #175/176,
+					Next to Rainbow Hospital<br>
+					Bannergatta Road, Bilekahalli<br>
+					Bengaluru - 560076</p>
+				</div>
+				<div class="w-full lg:w-2/5 mt-5 lg:mt-0">
+					<h3 class="text-2xl font-bold tracking-wide">Date</h3>
+					<p class="leading-relaxed mt-3">18th January 2020<br>9:00 AM to 6:30 PM</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+	buzz = document.getElementById('cool')
+	clickCount = 0
+	buzz.onclick = () => {
+		clickCount = clickCount + 1;
+		if (clickCount%5 == 0) cool()
+	}
+
+	console.log("Code is an Easter Egg!")
+</script>
+{% endblock %}

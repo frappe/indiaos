@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap');
+html { font-family: 'IBM Plex Sans', sans-serif; }
+
+html body {
+	background-size: 32px 32px;
+	background-image: radial-gradient(circle, #dedede 1px, rgba(0, 0, 0, 0) 1px);
+}
+
+.paper {
+	background: #fff;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#EDF2F7), color-stop(4%, #fff)) 0 4px;
+	background: -webkit-linear-gradient(top, #EDF2F7 0%, #fff 8%) 0 4px;
+	background: -moz-linear-gradient(top, #EDF2F7 0%, #fff 8%) 0 4px;
+	background: -ms-linear-gradient(top, #EDF2F7 0%, #fff 8%) 0 4px;
+	background: -o-linear-gradient(top, #EDF2F7 0%, #fff 8%) 0 4px;
+	background: linear-gradient(top, #EDF2F7 0%, #fff 8%) 0 4px;
+	-webkit-background-size: 100% 25px;
+	-moz-background-size: 100% 25px;
+	-ms-background-size: 100% 25px;
+	-o-background-size: 100% 25px;
+	background-size: 100% 25px;
+}
+
+.map {
+	background-image: url('/assets/conference/img/bangalore.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.container {
+	max-width: 1024px;
+}
+
+.tilt-left {
+	transform: rotate(-8deg)
+}
+
+.tilt-left:hover {
+	transform: rotate(-10deg)
+}
+
+.tilt-right {
+	transform: rotate(8deg)
+}
+
+.tilt-right:hover {
+	transform: rotate(10deg)
+}

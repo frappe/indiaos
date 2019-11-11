@@ -114,13 +114,13 @@
    "label": "Slides"
   },
   {
+   "default": "IndiaOS 2020",
    "fieldname": "conference",
-   "fieldtype": "Link",
-   "label": "Conference",
-   "options": "Conference"
+   "fieldtype": "Data",
+   "label": "Conference"
   }
  ],
- "modified": "2019-11-07 13:55:37.347828",
+ "modified": "2019-11-11 12:10:21.812011",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "CFP",

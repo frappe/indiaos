@@ -12,8 +12,12 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Conference Speakers"
+				},
+				{
+					"type": "doctype",
 					"name": "CFP"
-				}
+				},
 			]
 		},
 	]

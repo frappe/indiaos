@@ -12,13 +12,9 @@ module.exports = {
 	}
   ],
   content: [
-    "./indiaos/www/index.html",
-    "./indiaos/www/travel.html",
-    "./indiaos/templates/game.html",
-    "./indiaos/templates/conference.html",
-    "./indiaos/templates/includes/footer.html",
-    "./indiaos/templates/includes/navbar.html",
-    "./indiaos/templates/includes/modal.html",
+    "./indiaos/www/*.html",
+    "./indiaos/templates/*.html",
+    "./indiaos/templates/includes/*.html",
   ],
   css: ["./indiaos/public/css/tailwind.css"]
 };

@@ -11,7 +11,9 @@
   "organization",
   "column_break_4",
   "event",
-  "ticket_type"
+  "ticket_type",
+  "paid",
+  "token"
  ],
  "fields": [
   {
@@ -19,8 +21,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Email",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "organization",
@@ -50,9 +51,23 @@
    "in_list_view": 1,
    "label": "Full Name",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "paid",
+   "fieldtype": "Check",
+   "label": "Paid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "token",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Token",
+   "read_only": 1
   }
  ],
- "modified": "2019-11-11 11:35:48.582509",
+ "modified": "2019-11-12 14:54:13.948021",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Participant",

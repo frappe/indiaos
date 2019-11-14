@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>{% block title %} {{ title | striptags }} {% endblock %}</title>
 
 	<link rel="manifest" href="/manifest.json">
@@ -17,6 +17,7 @@
 	<!-- Schema.org markup for Google+ -->
 	<meta itemprop="name" content="IndiaOS - 2020">
 	<meta itemprop="description" content="See what's shaping the future of software, Join a community connected by code and turn ideas into innovations.">
+
 
 	<!-- Twitter Card data -->
 	<meta name="twitter:card" content="summary_large_image">
@@ -82,7 +83,6 @@
 	<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/frappe/js/lib/socket.io.min.js"></script>
 	<script type="text/javascript" src="/assets/js/frappe-web.min.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
 	<script type="text/javascript" src="/assets/js/checkout.min.js"></script>
 	{%- for link in web_include_js %}
 	<script type="text/javascript" src="{{ link | abs_url }}"></script>

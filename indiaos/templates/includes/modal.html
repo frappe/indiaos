@@ -54,19 +54,18 @@
 					</div>
 				</div>
 				<div class="text-center">You have successfully registered for IndiaOS. </div>
-				<div class="text-center text-gray-600">P.S. We sent an email with the ticket attached.</div>
+				<div class="text-center text-gray-600">P.S. We will send an email with the ticket attached once we authorize the payment.</div>
 			</div>
 
 			<div id="already-registered" class="py-12 md:py-5">
 				<img id="emoji-already-registered" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/indiaos/img/monocle.png"></img>
 				<div class="text-center">You have already registered for IndiaOS. We will send you a reminder 3 days before the conference.</div>
-				<!-- <div class="text-center text-gray-600">P.S. We sent an email with the ticket attached.</div> -->
 			</div>
 
 			<div id="payment-failed" class="py-12 md:py-5">
 				<img id="emoji-payment-failed" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/indiaos/img/bandage.png"></img>
-				<div class="text-center">Looks like something went wrong.<br>You have nothing to worry about, just drop in an email at shivam@frappe.io</div>
-				<!-- <div class="text-center text-gray-600">P.S. We sent an email with the ticket attached.</div> -->
+				<div class="text-center">Looks like the payment could not be completed.</div>
+				<div class="text-center text-gray-600">If you think there is a problem, just drop in an email at shivam@frappe.io</div>
 			</div>
 
 			<div id="loading-payment" class="py-12 md:py-5 flex text-center">
@@ -84,7 +83,6 @@
 	const closeButton = document.querySelectorAll('.modal-close');
 	const pages = ['form-modal', 'success', 'already-registered', 'loading-payment', 'payment-failed']
 
-	let token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
 	// let token = "123456";
 
 	const modalClose = () => {
@@ -112,7 +110,7 @@
 	function setPage(id) {
 		pages.forEach(page => {
 			document.getElementById(page).style.display = "none"
-		})	
+		})
 		document.getElementById(id).style.display = "block";
 	}
 
@@ -137,7 +135,7 @@
 	function success() {
 		setPage('success')
 		setTitle("Yayy 🎉");
-		window.addEventListener("focus", function(event) { 
+		window.addEventListener("focus", function(event) {
 			setTimeout(function () {
 				show('check-icon')
 			}, 10);
@@ -152,12 +150,44 @@
 	function fail(reason) {
 		setPage(reason)
 		setTitle("Oops!");
-		window.addEventListener("focus", function(event) { 
+		window.addEventListener("focus", function(event) {
 			setTimeout(function () {
 				show(`emoji-${reason}`)
 			}, 10);
 		}, false);
 	}
+
+	function make_payment(ticket) {
+		var options = {
+			"name": "IndiaOS",
+			"description": "Conference Ticket",
+			"image": "http://indiaos.in/assets/indiaos/img/icons/favicon.ico",
+			"prefill": {
+				"name": ticket.full_name,
+				"email": ticket.email,
+			},
+			"theme": {
+				"color": "#F6E05E"
+			},
+			"doctype": "Conference Participant",
+			"docname": ticket.name
+		};
+
+		razorpay = new frappe.checkout.razorpay(options)
+		razorpay.onOpen = () => {
+			modalClose();
+		}
+		razorpay.onSuccess = () => {
+			openModal();
+			success();
+		}
+		razorpay.onFail = () => {
+			openModal();
+			fail('payment-failed');
+		}
+		razorpay.init()
+	}
+
 
 	function register() {
 		let validated = true
@@ -177,26 +207,17 @@
 			let form = {}
 			inputs.forEach((id) => form[id] = document.getElementById(id).value)
 			form.event = "IndiaOS 2020"
-			form.token = token;
 			redirecting();
 			frappe.call('indiaos.indiaos.doctype.conference_participant.conference_participant.register', form).then(res => {
 				let msg = res.message
 				if (msg.status == 'success') {
-					if (msg.redirect_to) {
-						window.open(msg.redirect_to, "_blank");
-					}
+					make_payment(msg.ticket)
 					document.forms.namedItem('register-form').reset()
 				}
 				if (msg.status == 'failed') {
 					fail(msg.reason)
 					document.forms.namedItem('register-form').reset()
 				}
-			})
-			frappe.socketio.socket.on(token, (message) => {
-				console.log("SUCCEESSSS")
-				openModal();
-				if (message == 'success') success();
-				else fail('payment-failed');
 			})
 		}
 		else return
@@ -260,10 +281,10 @@
 
 @keyframes grow {
   from {
-    transform: scale(0);
+	transform: scale(0);
   }
   to {
-    transform: scale(1);
+	transform: scale(1);
   }
 }
 
@@ -347,65 +368,65 @@
 }
 @keyframes rotate-circle {
   0% {
-    transform: rotate(-45deg);
+	transform: rotate(-45deg);
   }
   5% {
-    transform: rotate(-45deg);
+	transform: rotate(-45deg);
   }
   12% {
-    transform: rotate(-405deg);
+	transform: rotate(-405deg);
   }
   100% {
-    transform: rotate(-405deg);
+	transform: rotate(-405deg);
   }
 }
 @keyframes icon-line-tip {
   0% {
-    width: 0;
-    left: 1px;
-    top: 19px;
+	width: 0;
+	left: 1px;
+	top: 19px;
   }
   54% {
-    width: 0;
-    left: 1px;
-    top: 19px;
+	width: 0;
+	left: 1px;
+	top: 19px;
   }
   70% {
-    width: 50px;
-    left: -8px;
-    top: 37px;
+	width: 50px;
+	left: -8px;
+	top: 37px;
   }
   84% {
-    width: 17px;
-    left: 21px;
-    top: 48px;
+	width: 17px;
+	left: 21px;
+	top: 48px;
   }
   100% {
-    width: 25px;
-    left: 14px;
-    top: 45px;
+	width: 25px;
+	left: 14px;
+	top: 45px;
   }
 }
 @keyframes icon-line-long {
   0% {
-    width: 0;
-    right: 46px;
-    top: 54px;
+	width: 0;
+	right: 46px;
+	top: 54px;
   }
   65% {
-    width: 0;
-    right: 46px;
-    top: 54px;
+	width: 0;
+	right: 46px;
+	top: 54px;
   }
   84% {
-    width: 55px;
-    right: 0px;
-    top: 35px;
+	width: 55px;
+	right: 0px;
+	top: 35px;
   }
   100% {
-    width: 47px;
-    right: 8px;
-    top: 38px;
+	width: 47px;
+	right: 8px;
+	top: 38px;
   }
 }
 
@@ -426,18 +447,18 @@
 }
 @keyframes lds-ripple {
   0% {
-    top: 28px;
-    left: 28px;
-    width: 0;
-    height: 0;
-    opacity: 1;
+	top: 28px;
+	left: 28px;
+	width: 0;
+	height: 0;
+	opacity: 1;
   }
   100% {
-    top: -1px;
-    left: -1px;
-    width: 58px;
-    height: 58px;
-    opacity: 0;
+	top: -1px;
+	left: -1px;
+	width: 58px;
+	height: 58px;
+	opacity: 0;
   }
 }
 

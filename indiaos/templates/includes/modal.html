@@ -173,6 +173,13 @@
 			"docname": ticket.name
 		};
 
+		options.modal = {
+			ondismiss: () => {
+				openModal();
+				fail('payment-failed');
+			}
+		};
+
 		razorpay = new frappe.checkout.razorpay(options)
 		razorpay.onOpen = () => {
 			modalClose();

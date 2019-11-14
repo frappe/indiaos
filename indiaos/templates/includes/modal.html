@@ -1,4 +1,4 @@
-<div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-end md:items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
+<div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-end md:items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);display: none;">
 	<div class="shadow-lg modal-container bg-white w-full md:max-w-md mx-auto rounded-t-lg md:rounded-b-lg shadow-lg z-50 overflow-y-auto">
 		<div class="modal-content py-4 text-left px-6">
 			<!--Title-->
@@ -79,6 +79,7 @@
 {% block script %}
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+	debugger
 	const modal = document.querySelector('.main-modal');
 	const closeButton = document.querySelectorAll('.modal-close');
 	const pages = ['form-modal', 'success', 'already-registered', 'loading-payment', 'payment-failed']

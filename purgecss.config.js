@@ -12,6 +12,7 @@ module.exports = {
 	}
   ],
   content: [
+    "./indiaos/indiaos/doctype/*/templates/*.html",
     "./indiaos/www/*.html",
     "./indiaos/templates/*.html",
     "./indiaos/templates/includes/*.html",

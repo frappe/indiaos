@@ -12,7 +12,7 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Conference Speakers"
+					"name": "Conference Speaker"
 				},
 				{
 					"type": "doctype",

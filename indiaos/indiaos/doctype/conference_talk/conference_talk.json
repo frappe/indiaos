@@ -1,0 +1,72 @@
+{
+ "beta": 1,
+ "creation": "2019-11-15 11:38:54.339753",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "talk_title",
+  "speaker",
+  "short_summary",
+  "long_summary",
+  "talk_type",
+  "sequence"
+ ],
+ "fields": [
+  {
+   "fieldname": "talk_title",
+   "fieldtype": "Data",
+   "label": "Talk Title"
+  },
+  {
+   "fieldname": "speaker",
+   "fieldtype": "Link",
+   "label": "Speaker",
+   "options": "Conference Speaker"
+  },
+  {
+   "fieldname": "short_summary",
+   "fieldtype": "Small Text",
+   "label": "Short Summary"
+  },
+  {
+   "fieldname": "long_summary",
+   "fieldtype": "Data",
+   "label": "Long Summary"
+  },
+  {
+   "fieldname": "talk_type",
+   "fieldtype": "Select",
+   "label": "Talk Type",
+   "options": "Lightning (~5 mins)\nTalk (~15-30 mins)"
+  },
+  {
+   "fieldname": "sequence",
+   "fieldtype": "Int",
+   "label": "Sequence"
+  }
+ ],
+ "modified": "2019-11-15 11:39:04.499904",
+ "modified_by": "Administrator",
+ "module": "IndiaOS",
+ "name": "Conference Talk",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

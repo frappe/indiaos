@@ -10,19 +10,19 @@
 {% block body %}
 <section class="container mx-auto py-12">
 	<div>
-		<div class="paper px-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
+		<div class="paper p-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
 			<h1 class="text-4xl mb-12 font-bold text-center tracking-wide mx-2">Agenda for IndiaOS 2020</h2>
 			{% for item in schedule %}
 				<div class="flex flex-wrap mb-8">
-					<div class="w-1/4 mt-1">
-						<p class="text-xl font-mono font-medium text-gray-600 text-right pr-10">
+					<div class="w-full md:w-1/4 mt-1 text-right flex flex-row md:flex-col">
+						<p class="md:text-xl font-mono font-medium text-gray-400 md:text-gray-600 pr-2 md:pr-10">
 							{{ frappe.utils.get_time(item.start_time).strftime("%I:%M %p") }}
 						</p>
-						<p class="text-sm font-mono font-medium text-gray-400 text-right pr-10">
+						<p class="text-sm font-mono font-medium text-gray-400 pr-10">
 							to {{ frappe.utils.get_time(item.end_time).strftime("%I:%M %p") }}
 						</p>
 					</div>
-					<div class="w-3/4">
+					<div class="w-full md:w-3/4">
 						<h3 class="text-2xl font-medium text-gray-900 font-semibold">{{ item.talk if item.talk else item.label }}</h3>
 						{% if item.talk %}
 							{% set talk = talks[item.talk] %}

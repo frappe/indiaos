@@ -10,18 +10,33 @@
 {% block body %}
 <section class="container mx-auto py-12">
 	<div>
-		<div class="paper px-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
+		<div class="paper px-6 md:p-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
 			<div class="flex flex-wrap">
-				<div class="w-1/3">
-					<img class="border-8 border-white shadow-md h-64 w-64 -mt-12" style="transform: rotate(-8deg)" src="{{ speaker.photo }}" alt="{{ speaker.full_name }}">
+				<div class="w-full md:w-5/12 lg:w-1/3">
+					<img class="border-8 border-white shadow-md h-64 w-64 -mt-12 mx-auto md:mx-0" style="transform: rotate(-8deg)" src="{{ speaker.photo }}" alt="{{ speaker.full_name }}">
 				</div>
-				<div class="w-2/3">
-					<p class="mt-3 text-3xl font-bold font-medium text-gray-900">{{ speaker.full_name }}</p>
-					<p class="mt-1 font-mono font-medium text-gray-600">{{ speaker.designation + ' - ' + speaker.organization }}</p>
-
-					<div class="mt-3 font-mono font-medium text-gray-800">{{ speaker.bio if speaker.editor == 'Text' else speaker.bio_html }}</div>
+				<div class="w-full md:w-7/12 lg:w-2/3 mt-8 md:mt-0">
+					<p class="mt-3 text-4xl font-bold font-medium text-gray-900">{{ speaker.full_name }}</p>
+					<p class="font-medium text-gray-600 text-xl">{{ speaker.designation + ' - ' + speaker.organization }}</p>
+					<div class="mt-4 font-mono text-sm">
+						{% if speaker.website %}
+							<span href="{{ speaker.website }}" class="underline text-blue-900 cursor-pointer mr-3">Website</span>
+						{% endif %}
+						{% if speaker.github %}
+							<span href="{{ speaker.github }}" class="underline text-blue-900 cursor-pointer mr-3">Github</span>
+						{% endif %}
+						{% if speaker.twitter %}
+							<span href="{{ speaker.twitter }}" class="underline text-blue-900 cursor-pointer mr-3">Twitter</span>
+						{% endif %}
+						{% if speaker.linkedin %}
+							<span href="{{ speaker.linkedin }}" class="underline text-blue-900 cursor-pointer mr-3">LinkedIn</span>
+						{% endif %}
+					</div>
 				</div>
 			</div>
+			{% if speaker.bio or speaker.bio_html %}
+			<div class="mt-8 md:mt-10 font-mono font-medium text-gray-800">{{ speaker.bio if speaker.editor == 'Text' else speaker.bio_html }}</div>
+			{% endif %}
 		</div>
 	</div>
 </section>

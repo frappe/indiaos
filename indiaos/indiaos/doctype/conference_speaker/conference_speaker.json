@@ -1,5 +1,4 @@
 {
- "autoname": "format:SPEAKER-{####}",
  "creation": "2019-11-12 15:01:06.487828",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -29,7 +28,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Full Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "designation",
@@ -120,7 +120,7 @@
   }
  ],
  "image_field": "photo",
- "modified": "2019-11-15 16:14:43.168478",
+ "modified": "2019-11-15 19:59:41.361882",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Speaker",
@@ -155,5 +155,6 @@
  "search_fields": "full_name",
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "full_name",
  "track_changes": 1
 }

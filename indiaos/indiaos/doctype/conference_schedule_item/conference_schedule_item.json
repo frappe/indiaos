@@ -1,0 +1,63 @@
+{
+ "beta": 1,
+ "creation": "2019-11-15 11:57:44.853544",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "start_time",
+  "end_time",
+  "event",
+  "label",
+  "talk"
+ ],
+ "fields": [
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Event",
+   "options": "Break\nTalk",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.event=='Talk'",
+   "fieldname": "talk",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Talk",
+   "options": "Conference Talk"
+  },
+  {
+   "depends_on": "eval:doc.event=='Break'",
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-11-15 13:14:44.547602",
+ "modified_by": "Administrator",
+ "module": "IndiaOS",
+ "name": "Conference Schedule Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

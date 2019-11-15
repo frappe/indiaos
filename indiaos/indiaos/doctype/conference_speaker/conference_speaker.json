@@ -8,16 +8,20 @@
   "full_name",
   "designation",
   "organization",
-  "primary_link",
+  "route",
   "column_break_5",
   "published",
   "photo",
   "section_break_9",
   "email",
+  "website",
+  "column_break_13",
   "twitter",
   "github",
-  "column_break_13",
-  "bio"
+  "section_break_14",
+  "editor",
+  "bio",
+  "bio_html"
  ],
  "fields": [
   {
@@ -40,11 +44,6 @@
    "in_list_view": 1,
    "label": "Organization",
    "reqd": 1
-  },
-  {
-   "fieldname": "primary_link",
-   "fieldtype": "Data",
-   "label": "Primary Link"
   },
   {
    "fieldname": "column_break_5",
@@ -86,13 +85,42 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.editor=='Text'",
    "fieldname": "bio",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text",
    "label": "Bio"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "HTML",
+   "fieldname": "editor",
+   "fieldtype": "Select",
+   "label": "Editor",
+   "options": "Text\nHTML"
+  },
+  {
+   "depends_on": "eval:doc.editor==\"HTML\"",
+   "description": "Supports Tailwind CSS",
+   "fieldname": "bio_html",
+   "fieldtype": "HTML Editor",
+   "label": "Bio"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
   }
  ],
  "image_field": "photo",
- "modified": "2019-11-12 15:05:02.813469",
+ "modified": "2019-11-15 16:14:43.168478",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Speaker",
@@ -109,9 +137,22 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Website Manager",
+   "share": 1,
+   "write": 1
   }
  ],
  "quick_entry": 1,
+ "search_fields": "full_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

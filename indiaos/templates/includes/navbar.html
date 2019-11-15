@@ -14,6 +14,14 @@
 					Why IndiaOS
 				</a>
 			</div>
+			{% set settings = frappe.get_doc("Conference Settings") %}
+			{% if settings.publish_agenda %}
+			<div class="py-3 ml-2 lg:py-0 lg:ml-0 text-left">
+				<a href="/agenda" class="block font-base font-mono no-underline text-grey-darkest mr-0 lg:mr-8">
+					Agenda
+				</a>
+			</div>
+			{% endif %}
 			<div class="py-3 ml-2 lg:py-0 lg:ml-0 text-left">
 				<a href="/propose-a-talk" class="block font-base font-mono no-underline text-grey-darkest mr-0 lg:mr-8">
 					Propose a Talk
@@ -31,7 +39,7 @@
 	const menuButton = document.getElementById("menuButton");
 	const menuBody = document.getElementById("menuBody");
 	menuButton.onclick = () => toggleMenu();
-	
+
 	function toggleMenu() {
 		if (menuBody.classList.contains("hidden")) {
 			menuBody.classList.remove("hidden")

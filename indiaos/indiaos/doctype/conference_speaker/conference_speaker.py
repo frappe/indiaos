@@ -3,8 +3,16 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
-from frappe.model.document import Document
+import frappe
+from frappe.website.website_generator import WebsiteGenerator
 
-class ConferenceSpeaker(Document):
-	pass
+class ConferenceSpeaker(WebsiteGenerator):
+	website = frappe._dict(
+		page_title_field="full_name",
+		condition_field="published",
+		no_cache=1,
+		sitemap=1
+	)
+
+	def get_context(self, context):
+		context.speaker = self

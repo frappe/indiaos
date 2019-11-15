@@ -54,18 +54,20 @@
 		</div>
 	</div>
 </section>
-
-{% if speakers %}
+{% set settings = frappe.get_doc("Conference Settings") %}
+{% if speakers and settings.publish_speakers %}
 <section class="container mx-auto mb-32">
 	<div>
 		<h1 class="text-3xl font-bold tracking-wide text-center mx-2">Speakers at IndiaOS</h2>
 		<div class="flex flex-wrap mt-12">
 			{% for speaker in speakers %}
+			{% if speaker.published %}
 				<div class="text-center w-full w-full md:w-1/4 lg:w-1/4 mb-8">
 					<img class="rounded-full mx-auto border-8 border-white shadow-md h-48 w-48" src="{{ speaker.photo }}" alt="{{ speaker.full_name }}">
 					<p class="mt-3 text-xl font-medium text-gray-900">{{ speaker.full_name }}</p>
 					<p class="mt-1 font-medium text-gray-600">{{ speaker.designation + ' - ' + speaker.organization }}</p>
 				</div>
+			{% endif %}
 			{% endfor %}
 		</div>
 	</div>

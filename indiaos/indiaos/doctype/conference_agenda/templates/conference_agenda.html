@@ -1,0 +1,49 @@
+{% extends "templates/conference.html" %}
+
+{% block title %}IndiaOS 2020 - An Open Source Conference{% endblock %}
+
+{% block meta %}
+<meta name="title" content="IndiaOS 2020">
+<meta name="description" content="See what's shaping the future of software, Join a community connected by code and turn ideas into innovations.">
+{% endblock %}
+
+{% block body %}
+<section class="container mx-auto py-12">
+	<div>
+		<div class="paper px-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
+			<h1 class="text-4xl mb-12 font-bold text-center tracking-wide mx-2">Agenda for IndiaOS 2020</h2>
+			{% for item in schedule %}
+				<div class="flex flex-wrap mb-8">
+					<div class="w-1/4 mt-1">
+						<p class="text-xl font-mono font-medium text-gray-600 text-right pr-10">
+							{{ frappe.utils.get_time(item.start_time).strftime("%I:%M %p") }}
+						</p>
+						<p class="text-sm font-mono font-medium text-gray-400 text-right pr-10">
+							to {{ frappe.utils.get_time(item.end_time).strftime("%I:%M %p") }}
+						</p>
+					</div>
+					<div class="w-3/4">
+						<h3 class="text-2xl font-medium text-gray-900 font-semibold">{{ item.talk if item.talk else item.label }}</h3>
+						{% if item.talk %}
+							{% set talk = talks[item.talk] %}
+							<p class="font-mono font-medium text-gray-800">{{ talk.short_summary }}</p>
+							{%  if talk.speaker %}
+								{% set speaker = speakers[talk.speaker] %}
+								<a href="{{ speaker.route }}" class="flex flex-row mt-3 text-gray-600 hover:text-gray-800">
+									<img class="rounded-full border-2 border-white shadow-md h-8 w-8 mr-2 self-center" src="{{ speaker.photo }}" alt="{{ speaker.full_name }}" data-tilt data-tilt-scale="1.1" data-tilt-perspective="99999">
+									<p class="font-mono font-medium self-center">{{ speaker.full_name }}</p>
+								</a>
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+</script>
+{% endblock %}

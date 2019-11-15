@@ -17,7 +17,7 @@
  "is_standard": 1,
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2019-11-11 12:10:39.731176",
+ "modified": "2019-11-15 18:47:25.274037",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "propose-a-talk",
@@ -167,6 +167,18 @@
   },
   {
    "allow_read_on_all_link_options": 0,
+   "fieldname": "slides",
+   "fieldtype": "Attach",
+   "hidden": 0,
+   "label": "Slides",
+   "max_length": 0,
+   "max_value": 0,
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
    "default": "IndiaOS 2020",
    "fieldname": "conference",
    "fieldtype": "Data",
@@ -199,7 +211,7 @@
    "max_length": 0,
    "max_value": 0,
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -220,18 +232,6 @@
    "fieldtype": "Text Editor",
    "hidden": 0,
    "label": "Note for Organizers",
-   "max_length": 0,
-   "max_value": 0,
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "slides",
-   "fieldtype": "Attach",
-   "hidden": 0,
-   "label": "Slides",
    "max_length": 0,
    "max_value": 0,
    "read_only": 0,

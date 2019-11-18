@@ -16,15 +16,24 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Conference Agenda"
-				},
-				{
-					"type": "doctype",
 					"name": "Conference Talk"
 				},
 				{
 					"type": "doctype",
 					"name": "CFP"
+				},
+			]
+		},
+		{
+			"label": _("Settings"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Conference Agenda"
+				},
+				{
+					"type": "doctype",
+					"name": "Conference Settings"
 				},
 			]
 		},

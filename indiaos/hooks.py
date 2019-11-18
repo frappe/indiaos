@@ -50,7 +50,7 @@ home_page = "index"
 # ----------
 
 # automatically create page for each record of this doctype
-website_generators = ["Conference Speaker", "Conference Agenda"]
+website_generators = ["Conference Speaker", "Conference Agenda", "Conference Talk"]
 
 # Installation
 # ------------

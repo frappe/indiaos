@@ -14,5 +14,8 @@ class ConferenceSpeaker(WebsiteGenerator):
 		sitemap=1
 	)
 
+	def make_route(self):
+		return 'speakers/' + self.scrub(self.full_name)
+
 	def get_context(self, context):
 		context.speaker = self

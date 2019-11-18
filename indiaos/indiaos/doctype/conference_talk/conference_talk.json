@@ -1,4 +1,5 @@
 {
+ "autoname": "field:talk_title",
  "beta": 1,
  "creation": "2019-11-15 11:38:54.339753",
  "doctype": "DocType",
@@ -7,16 +8,24 @@
  "field_order": [
   "talk_title",
   "speaker",
-  "short_summary",
-  "long_summary",
   "talk_type",
-  "sequence"
+  "event",
+  "column_break_3",
+  "route",
+  "published",
+  "show_on_home_page",
+  "section_break_8",
+  "short_summary",
+  "long_summary"
  ],
  "fields": [
   {
    "fieldname": "talk_title",
    "fieldtype": "Data",
-   "label": "Talk Title"
+   "in_list_view": 1,
+   "label": "Talk Title",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "speaker",
@@ -27,26 +36,60 @@
   {
    "fieldname": "short_summary",
    "fieldtype": "Small Text",
-   "label": "Short Summary"
+   "in_list_view": 1,
+   "label": "Short Summary",
+   "reqd": 1
   },
   {
    "fieldname": "long_summary",
-   "fieldtype": "Data",
-   "label": "Long Summary"
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Long Summary",
+   "reqd": 1
   },
   {
    "fieldname": "talk_type",
    "fieldtype": "Select",
    "label": "Talk Type",
-   "options": "Lightning (~5 mins)\nTalk (~15-30 mins)"
+   "options": "Lightning (~5 mins)\nTalk (~15-30 mins)",
+   "reqd": 1
   },
   {
-   "fieldname": "sequence",
-   "fieldtype": "Int",
-   "label": "Sequence"
+   "default": "IndiaOS 2020",
+   "fieldname": "event",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Event",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "show_on_home_page",
+   "fieldtype": "Check",
+   "label": "Show on Home Page",
+   "search_index": 1
   }
  ],
- "modified": "2019-11-15 11:39:04.499904",
+ "modified": "2019-11-18 18:42:07.541445",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Talk",
@@ -61,6 +104,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Website Manager",
    "share": 1,
    "write": 1
   }

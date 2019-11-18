@@ -48,7 +48,7 @@
 						{% if item.talk %}
 							{% set talk = talks[item.talk] %}
 							<p class="font-mono font-medium text-gray-800">{{ talk.short_summary }}</p>
-							{%  if talk.speaker %}
+							{% if talk.speaker %}
 								{% set speaker = speakers[talk.speaker] %}
 								<a href="{{ speaker.route }}" class="flex flex-row mt-3 text-gray-600 hover:text-gray-800">
 									<img class="rounded-full border-2 border-white shadow-md h-8 w-8 mr-2 self-center" src="{{ speaker.photo }}" alt="{{ speaker.full_name }}" data-tilt data-tilt-scale="1.1" data-tilt-perspective="99999">

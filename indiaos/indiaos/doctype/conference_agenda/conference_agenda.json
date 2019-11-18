@@ -1,6 +1,6 @@
 {
  "allow_rename": 1,
- "autoname": "format:{event}",
+ "autoname": "field:event",
  "beta": 1,
  "creation": "2019-11-15 11:55:11.798957",
  "doctype": "DocType",
@@ -21,7 +21,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Event",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "column_break_2",
@@ -50,7 +51,7 @@
    "label": "Route"
   }
  ],
- "modified": "2019-11-15 14:09:59.871793",
+ "modified": "2019-11-18 18:21:00.801621",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Agenda",
@@ -83,5 +84,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "event",
  "track_changes": 1
 }

@@ -8,7 +8,7 @@ from frappe.website.website_generator import WebsiteGenerator
 
 class ConferenceAgenda(WebsiteGenerator):
 	website = frappe._dict(
-		page_title_field="name",
+		page_title_field="event",
 		condition_field="published",
 		no_cache=1,
 		sitemap=1

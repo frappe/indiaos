@@ -2,8 +2,29 @@
 
 {% block title %}IndiaOS 2020 - An Open Source Conference{% endblock %}
 {% block meta %}
+<meta itemprop="name" content="IndiaOS - 2020">
 <meta name="title" content="Why IndiaOS - IndiaOS 2020">
 <meta name="description" content="IndiaOS is an attempt to bring this community together, so we can learn and inspire each other. To take this community forward in new directions that we have not yet imagined.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@indiaos">
+<meta name="twitter:title" content="Why IndiaOS">
+<meta name="twitter:description" content="FOSS is really important to society and we need an event to come together as a community to take it forward.">
+<meta name="twitter:creator" content="@indiaos">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+<meta name="twitter:image:src" content="{{ frappe.utils.get_url() }}/assets/indiaos/img/social/banner.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Why IndiaOS" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ frappe.utils.get_url() }}" />
+<meta property="og:image" content="{{ frappe.utils.get_url() }}/assets/indiaos/img/social/banner.png" />
+<meta property="og:image:width" content="1360" />
+<meta property="og:image:height" content="720" />
+<meta property="og:description" content="FOSS is really important to society and we need an event to come together as a community to take it forward." />
+<meta property="og:site_name" content="IndiaOS - 2020" />
 {% endblock %}
 
 {% block body %}
@@ -12,9 +33,9 @@
 		<div class="paper px-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
 			<h1 class="text-4xl mb-12 font-bold tracking-wide mx-2">Why IndiaOS - Accelerating FOSS in India</h1>
 			<p class="font-mono mb-6 p-0 leading-relaxed">India lacks quality free and open source (FOSS) events. While there are technology events like PyCon and JSFoo, which are fantastic places to talk about technology, FOSS communities go beyond just technology. FOSS is about creation <i>and sharing</i> of technology. IndiaOS is an attempt to bring this community together, so we can learn and inspire each other. To take this community forward in new directions that we have not yet imagined.</p>
-			
+
 			<p class="font-mono mb-6 p-0 leading-relaxed">IndiaOS is an event focused on the <b>creators</b> and <b>contributors</b> of FOSS. Participants can learn about new projects, success stories, how to increase adoption, best practices about design, documentation, how to sustain livelihoods and much more.</p>
-			
+
 			<p class="font-mono mb-6 p-0 leading-relaxed">India, and the world, needs more FOSS. FOSS leads to not only savings, but sharing is a super fast way to get solutions up and ready immediately. With the amount of FOSS tools already available, we should be doing so much more either as non profits or private or public entities.</p>
 
 			<p class="font-mono mb-6 p-0 leading-relaxed">FOSS is really important to society and we need an event to come together as a community to take it forward. Today there is no such event.</p>

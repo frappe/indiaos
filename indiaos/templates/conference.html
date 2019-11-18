@@ -9,7 +9,6 @@
 
 	<link rel="manifest" href="/manifest.json">
 
-	{% block meta %}{% endblock %}
 	{% block head_includes %}{% endblock %}
 
 	<!-- Meta tags for SEO and Social Media -->
@@ -18,8 +17,11 @@
 	<meta itemprop="name" content="IndiaOS - 2020">
 	<meta itemprop="description" content="See what's shaping the future of software, Join a community connected by code and turn ideas into innovations.">
 
-
+	{% block meta %}
 	<!-- Twitter Card data -->
+	<meta name="title" content="IndiaOS 2020">
+	<meta name="description" content="See what's shaping the future of software, Join a community connected by code and turn ideas into innovations.">
+
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@indiaos">
 	<meta name="twitter:title" content="IndiaOS - 2020">
@@ -39,6 +41,7 @@
 	<meta property="og:image:height" content="720" />
 	<meta property="og:description" content="See what's shaping the future of software, Join a community connected by code and turn ideas into innovations." />
 	<meta property="og:site_name" content="IndiaOS - 2020" />
+	{% endblock %}
 
 	<!-- End of Meta Tags-->
 	<link href="/assets/css/indiaos.css" rel="stylesheet">

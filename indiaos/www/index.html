@@ -82,14 +82,14 @@
 						<p class="mt-1 font-medium text-gray-600">{{ talk.short_summary }}</p>
 						<div class="flex flex-row mt-3 text-gray-500">
 							<div class="flex flex-row w-4/6">
-								<img class="rounded-full border-2 border-white shadow-md h-8 w-8 mr-2 self-center" src="{{ speakers[talk.speaker].photo }}" alt="{{ speakers[talk.speaker].full_name }}" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
+								<img class="rounded-full border-2 border-white shadow-inner h-8 w-8 mr-2 self-center" src="{{ speakers[talk.speaker].photo }}" alt="{{ speakers[talk.speaker].full_name }}">
 								<p class="font-mono font-medium self-center">{{ speakers[talk.speaker].full_name }}</p>
 							</div>
 							<div class="self-center w-2/6 text-right text-gray-500">
 								{% if talk.talk_type == "Talk (~15-30 mins)" %}
-									35 mins
+									~ 30 mins
 								{% else %}
-									5 mins
+									~ 5 mins
 								{% endif %}
 							</div>
 						</div>

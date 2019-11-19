@@ -27,8 +27,10 @@
 					</div>
 				</div>
 			</div>
-			{% if long_summary %}
+			{% if editor == "Text Editor" and long_summary %}
 			<div class="mt-8 md:mt-10 font-mono font-medium text-gray-800">{{ long_summary }}</div>
+			{% elif editor == "HTML" and long_summary_html %}
+			<div class="mt-8 md:mt-10 font-mono font-medium text-gray-800">{{ long_summary_html }}</div>
 			{% endif %}
 		</div>
 	</div>

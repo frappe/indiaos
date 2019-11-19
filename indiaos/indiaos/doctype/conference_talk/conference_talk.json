@@ -16,7 +16,9 @@
   "show_on_home_page",
   "section_break_8",
   "short_summary",
-  "long_summary"
+  "editor",
+  "long_summary",
+  "long_summary_html"
  ],
  "fields": [
   {
@@ -41,11 +43,11 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.editor == \"Text Editor\"",
    "fieldname": "long_summary",
    "fieldtype": "Text Editor",
    "in_list_view": 1,
-   "label": "Long Summary",
-   "reqd": 1
+   "label": "Long Summary"
   },
   {
    "fieldname": "talk_type",
@@ -87,9 +89,22 @@
    "fieldtype": "Check",
    "label": "Show on Home Page",
    "search_index": 1
+  },
+  {
+   "default": "HTML",
+   "fieldname": "editor",
+   "fieldtype": "Select",
+   "label": "Editor",
+   "options": "HTML\nText Editor"
+  },
+  {
+   "depends_on": "eval:doc.editor == \"HTML\"",
+   "fieldname": "long_summary_html",
+   "fieldtype": "Code",
+   "label": "Long Summary"
   }
  ],
- "modified": "2019-11-18 18:42:07.541445",
+ "modified": "2019-11-19 15:56:13.782297",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Talk",

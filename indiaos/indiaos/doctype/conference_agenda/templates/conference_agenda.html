@@ -44,9 +44,9 @@
 						</p>
 					</div>
 					<div class="w-full md:w-3/4">
-						<h3 class="text-2xl font-medium text-gray-900 font-semibold">{{ item.talk if item.talk else item.label }}</h3>
 						{% if item.talk %}
 							{% set talk = talks[item.talk] %}
+							<a href="{{ talk.route }}" class="text-2xl font-medium text-gray-900 font-semibold">{{ talk.talk_title }}</a>
 							<p class="font-mono font-medium text-gray-800">{{ talk.short_summary }}</p>
 							{% if talk.speaker %}
 								{% set speaker = speakers[talk.speaker] %}
@@ -55,6 +55,8 @@
 									<p class="font-mono font-medium self-center">{{ speaker.full_name }}</p>
 								</a>
 							{% endif %}
+						{% else %}
+						<h3 class="text-2xl font-medium text-gray-900 font-semibold">{{ item.label }}</h3>
 						{% endif %}
 					</div>
 				</div>

@@ -5,23 +5,25 @@
 {% block body %}
 <section class="container mx-auto py-12">
 	<div>
-		<div class="paper px-6 md:p-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
+		<div class="paper p-6 md:p-6 lg:p-12 rounded shadow-md bg-white mt-8 mx-2 lg:mx-0">
 			<div class="flex flex-wrap">
-				<div class="w-full md:w-7/12 lg:w-2/3 mt-8 md:mt-0">
-					<p class="mt-3 text-4xl font-bold font-medium text-gray-900">{{ talk_title }}</p>
+				<div class="w-full">
+					<p class="text-4xl font-bold font-medium text-gray-900">{{ talk_title }}</p>
 					{% if short_summary %}
-						<div class="mt-2 md:mt-3 font-mono font-medium text-gray-800">{{ short_summary }}</div>
+						<div class="mt-2 md:mt-3 font-mono text-lg font-medium text-gray-700 font-bold">{{ short_summary }}</div>
 					{% endif %}
-					<div class="mt-5">
-						{% if talk_type %}
-							<div class="mt-2 md:mt-3 font-mono font-medium text-gray-800">
-								Talk Type: <span class="font-bold">{{ talk_type }}</span>
-							</div>
-						{% endif %}
-
+					<div class="mt-5 text-gray-700 flex flex-row flex-wrap md:justify-between">
 						{% if speaker %}
-							<div class="mt-2 md:mt-3 font-mono font-medium text-gray-800">
-								Speaker: <a href="/{{ speaker.route }}" class="underline text-gray-900 font-bold">{{ speaker.full_name }}</a>
+							<a href="/{{ speaker.route }}" class="self-center flex flex-row w-4/6 hover:text-gray-800">
+								<img class="rounded-full border-2 border-white shadow-md h-8 w-8 mr-2 self-center" src="{{ speaker.photo }}" alt="{{ speaker.full_name }}">
+								<p class="font-mono font-medium self-center">{{ speaker.full_name }}</p>
+							</a>
+						{% endif %}
+						{% if talk_type %}
+							<div class="self-center flex font-mono font-medium md:mt-0 mt-2 h-0 md:h-auto invisible md:visible">
+								<svg width="16" height="16" class="inline-block self-center mr-2" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+									<path fill-rule="evenodd" fill="#718096" d="M8 8h3v2H7c-.55 0-1-.45-1-1V4h2v4zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 011.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"></path></svg>
+								<span class="self-center">{{ talk_type }}</span>
 							</div>
 						{% endif %}
 					</div>

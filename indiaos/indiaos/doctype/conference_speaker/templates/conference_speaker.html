@@ -20,16 +20,16 @@
 					<p class="font-medium text-gray-700 text-xl">{{ speaker.designation + ' - ' + speaker.organization }}</p>
 					<div class="mt-4 font-mono text-sm">
 						{% if speaker.website %}
-							<span href="{{ speaker.website }}" class="underline text-blue-900 cursor-pointer mr-3">Website</span>
+							<a href="{{ speaker.website }}" class="underline text-blue-900 cursor-pointer mr-3">Website</a>
 						{% endif %}
 						{% if speaker.github %}
-							<span href="{{ speaker.github }}" class="underline text-blue-900 cursor-pointer mr-3">Github</span>
+							<a href="{{ speaker.github }}" class="underline text-blue-900 cursor-pointer mr-3">Github</a>
 						{% endif %}
 						{% if speaker.twitter %}
-							<span href="{{ speaker.twitter }}" class="underline text-blue-900 cursor-pointer mr-3">Twitter</span>
+							<a href="{{ speaker.twitter }}" class="underline text-blue-900 cursor-pointer mr-3">Twitter</a>
 						{% endif %}
 						{% if speaker.linkedin %}
-							<span href="{{ speaker.linkedin }}" class="underline text-blue-900 cursor-pointer mr-3">LinkedIn</span>
+							<a href="{{ speaker.linkedin }}" class="underline text-blue-900 cursor-pointer mr-3">LinkedIn</a>
 						{% endif %}
 					</div>
 				</div>

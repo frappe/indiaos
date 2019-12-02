@@ -53,7 +53,7 @@
    "fieldname": "talk_type",
    "fieldtype": "Select",
    "label": "Talk Type",
-   "options": "Lightning (~5 mins)\nTalk (~15-30 mins)",
+   "options": "Lightning (~15 mins)\nTalk (~15-30 mins)",
    "reqd": 1
   },
   {
@@ -104,7 +104,7 @@
    "label": "Long Summary"
   }
  ],
- "modified": "2019-11-19 15:56:13.782297",
+ "modified": "2019-11-21 15:56:13.782297",
  "modified_by": "Administrator",
  "module": "IndiaOS",
  "name": "Conference Talk",

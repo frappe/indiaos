@@ -1125,6 +1125,12 @@ img {
   visibility: hidden;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .w-8 {
   width: 2rem;
 }

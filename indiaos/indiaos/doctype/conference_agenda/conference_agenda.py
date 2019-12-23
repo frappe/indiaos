@@ -25,9 +25,9 @@ class ConferenceAgenda(WebsiteGenerator):
 
 	def get_context(self, context):
 		speakers = frappe.get_list("Conference Speaker", fields=['name', 'photo', 'full_name', 'designation', 'organization', 'published', 'route'], order_by="full_name", ignore_permissions=True)
-		talks = frappe.get_list("Conference Talk", fields=['talk_title', 'speaker', 'short_summary', 'talk_type', 'route'], order_by="sequence", ignore_permissions=True)
+		talks = frappe.get_list("Conference Talk", fields=['name', 'talk_title', 'speaker', 'short_summary', 'talk_type', 'route'], ignore_permissions=True)
 		context.schedule = self.schedule
-		context.talks = { talk.talk_title: talk for talk in talks }
+		context.talks = { talk.name: talk for talk in talks }
 		context.speakers = { speaker.name: speaker for speaker in speakers }
 
 

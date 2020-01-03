@@ -187,14 +187,14 @@
 		};
 
 		razorpay = new frappe.checkout.razorpay(options)
-		razorpay.onOpen = () => {
+		razorpay.on_open = () => {
 			modalClose();
 		}
-		razorpay.onSuccess = () => {
+		razorpay.on_success = () => {
 			openModal();
 			success();
 		}
-		razorpay.onFail = () => {
+		razorpay.on_fail = () => {
 			openModal();
 			fail('payment-failed');
 		}

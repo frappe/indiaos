@@ -62,6 +62,12 @@
 				<div class="text-center">You have already registered for IndiaOS. We will send you a reminder 3 days before the conference.</div>
 			</div>
 
+			<div id="registrations-closed" class="py-12 md:py-5">
+				<img id="emoji-registrations-closed" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/indiaos/img/sleeping-face.png"></img>
+				<div class="text-center">The registrations for IndiaOS have closed.</div>
+				<div class="text-center text-gray-600"> Don't worry we will publish all the talks on YouTube, stay tuned.</div>
+			</div>
+
 			<div id="payment-failed" class="py-12 md:py-5">
 				<img id="emoji-payment-failed" class="mx-auto w-24 h-24 m-10 animated faster grow" src="/assets/indiaos/img/bandage.png"></img>
 				<div class="text-center">Looks like the payment could not be completed.</div>
@@ -81,7 +87,7 @@
 <script>
 	const modal = document.querySelector('.main-modal');
 	const closeButton = document.querySelectorAll('.modal-close');
-	const pages = ['form-modal', 'success', 'already-registered', 'loading-payment', 'payment-failed']
+	const pages = ['form-modal', 'success', 'already-registered', 'loading-payment', 'payment-failed', 'registrations-closed']
 
 	// let token = "123456";
 

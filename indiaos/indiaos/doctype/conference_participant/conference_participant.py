@@ -8,11 +8,20 @@ from frappe.model.document import Document
 from frappe.integrations.utils import get_payment_gateway_controller
 from frappe.realtime import publish_realtime
 
+class MaxCapacityReached(Exception): pass
+
 class ConferenceParticipant(Document):
 	def before_insert(self):
 		doc = frappe.get_value("Conference Participant", {'email': self.email, 'paid': 1})
 		if doc:
 			raise frappe.exceptions.UniqueValidationError
+
+	def validate(self):
+		# check max capacity
+		max_capacity = frappe.db.get_single_value('Conference Settings', 'max_capacity')
+		count = frappe.db.count("Conference Participant", {'paid': 1})
+		if max_capacity and count >= max_capacity:
+			raise MaxCapacityReached
 
 	def get_razorpay_order(self):
 		controller = get_payment_gateway_controller("Razorpay")
@@ -66,5 +75,7 @@ def register(name, email, organization='', event="IndiaOS 2020"):
 		part.save(ignore_permissions=True)
 	except frappe.exceptions.UniqueValidationError:
 		return {'status': 'failed', 'reason': 'already-registered'}
+	except MaxCapacityReached:
+		return {'status': 'failed', 'reason': 'registrations-closed'}
 	return {'status': 'success', 'ticket': part.as_dict()}
 

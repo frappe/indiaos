@@ -66,6 +66,8 @@ class ConferenceParticipant(Document):
 
 @frappe.whitelist(allow_guest=True)
 def register(name, email, organization='', event="IndiaOS 2020"):
+	return {'status': 'failed', 'reason': 'registrations-closed'}
+
 	part = frappe.new_doc("Conference Participant")
 	part.full_name = name
 	part.email = email

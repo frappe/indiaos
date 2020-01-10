@@ -18,10 +18,10 @@
 			<p class="font-mono">18 January 2020 | Bengaluru, India</p>
 			<p class="font-mono mt-8 leading-relaxed">See what's shaping the future of software, join a community of makers and creators and turn ideas into innovations.</p>
 			<div class="mt-8">
-				<button onclick="openModal()" href="#responsive-header" class="font-mono mt-8 font-base font-mono no-underline text-grey-darkest mr-3 bg-yellow-400 px-3 py-2 rounded border-yellow-500 border-b-4 hover:border-yellow-600">
+				<!-- <button onclick="openModal()" href="#responsive-header" class="font-mono mt-8 font-base font-mono no-underline text-grey-darkest mr-3 bg-yellow-400 px-3 py-2 rounded border-yellow-500 border-b-4 hover:border-yellow-600">
 					Register
-				</button>
-				<!-- <p class="font-mono font-bold">Registrations Open 16th November</p> -->
+				</button> -->
+				<p class="font-mono font-bold">Registrations Closed</p>
 <!-- 				<button onclick="window.location.href='/propose-a-talk'" target="blank" class="font-mono font-base font-mono no-underline text-grey-darkest mr-3 bg-gray-400 px-3 py-2 rounded border-gray-500 border-b-4 hover:border-gray-600 modal-close mt-3 lg:mt-0">
 					Propose a Talk
 				</button> -->
@@ -98,9 +98,6 @@
 			{% endif %}
 			{% endfor %}
 		</div>
-		{% if settings.publish_agenda %}
-			<a href="/agenda" class="text-gray-800 underline font-mono text-center mx-auto block">View Full Agenda</a>
-		{% endif %}
 	</div>
 </section>
 {% endif %}

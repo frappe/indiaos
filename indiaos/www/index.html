@@ -18,10 +18,13 @@
 			<p class="font-mono">18 January 2020 | Bengaluru, India</p>
 			<p class="font-mono mt-8 leading-relaxed">See what's shaping the future of software, join a community of makers and creators and turn ideas into innovations.</p>
 			<div class="mt-8">
-				<!-- <button onclick="openModal()" href="#responsive-header" class="font-mono mt-8 font-base font-mono no-underline text-grey-darkest mr-3 bg-yellow-400 px-3 py-2 rounded border-yellow-500 border-b-4 hover:border-yellow-600">
+				{% if settings.ticketing == "Open" %}
+				<button onclick="openModal()" href="#responsive-header" class="font-mono mt-8 font-base font-mono no-underline text-grey-darkest mr-3 bg-yellow-400 px-3 py-2 rounded border-yellow-500 border-b-4 hover:border-yellow-600">
 					Register
-				</button> -->
+				</button>
+				{% else %}
 				<p class="font-mono font-bold">Registrations Closed</p>
+				{% endif %}
 <!-- 				<button onclick="window.location.href='/propose-a-talk'" target="blank" class="font-mono font-base font-mono no-underline text-grey-darkest mr-3 bg-gray-400 px-3 py-2 rounded border-gray-500 border-b-4 hover:border-gray-600 modal-close mt-3 lg:mt-0">
 					Propose a Talk
 				</button> -->
